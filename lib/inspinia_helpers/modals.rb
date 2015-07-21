@@ -47,4 +47,18 @@ module InspiniaHelpers::Modals
     end
     content_tag(:div, content, :id => 'modal-loading')
   end
+
+  def youtube_modal_btn(text, url, id, options={})
+    button = content_tag(:div, text, "class" => "btn btn-success", "data-toggle" => "modal", "data-target" => "##{id}")
+
+    content = modal_content do |header, body, footer|
+      h = header.call {modal_close + content_tag(:h4, options[:title] || text, :class => "modal-title")}
+      b = body.call {content_tag(:iframe, "", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/HhbZuHI3D0w", :width => "560")}
+      h + b
+    end
+    dialog = content_tag(:div, content, :class => "modal-dialog")
+    modal = content_tag(:div, dialog, :class => "modal inmodal", :id => id)
+
+    button + modal
+  end
 end
