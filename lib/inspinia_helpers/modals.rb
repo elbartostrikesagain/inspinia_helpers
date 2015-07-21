@@ -51,7 +51,7 @@ module InspiniaHelpers::Modals
   def youtube_modal(title, url, modal_id, options={})
     content = modal_content do |header, body, footer|
       h = header.call {modal_close + content_tag(:h4, title, :class => "modal-title")}
-      b = body.call {content_tag(:iframe, "", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => url, :width => "560")}
+      b = body.call {content_tag(:iframe, "", :allowfullscreen => "true", :frameborder => "0", :height => "315", :src => "#{url}?enablejsapi=1&version=3", :width => "560")}
       h + b
     end
     dialog = content_tag(:div, content, :class => "modal-dialog")
