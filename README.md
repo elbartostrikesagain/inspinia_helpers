@@ -15,7 +15,34 @@ gem 'inspinia_helpers', git: 'git://github.com/elbartostrikesagain/inspinia_help
 ```ruby
 include InspiniaHelpers
 ```
-Look at methods in the modules... I'm not going to document them because we're not going to keep the docs up to date.
+
+## Examples(incomplete + in haml)
+
+#### Modal
+```ruby
+= modal_content do |header, body, footer|
+  = header.call do
+    = modal_close
+    %h4.modal-title ModalTitleHere
+  = body.call do
+    My Body Here
+  = footer.call
+    My Footer here
+```
+
+#### Tabs
+```ruby
+= tab_buttons 2, 'optionalIDForMultipleTabSections' do |tab1, tab2|
+  = tab1.call 'active tab1_class' do
+    Tab1 Title
+  = tab2.call 'tab2_class' do
+    Tab2 Title
+= tab_content 2, 'optionalIDForMultipleTabSections' do |tab1, tab2|
+  = tab1.call 'tab1_class active' do
+    Tab1 Content
+  = tab2.call 'tab2_class' do
+    Tab2 Content
+```
 
 ## Contributing
 
