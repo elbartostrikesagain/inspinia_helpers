@@ -6,12 +6,12 @@ require 'inspinia_helpers/version'
 Gem::Specification.new do |spec|
   spec.name          = "inspinia_helpers"
   spec.version       = InspiniaHelpers::VERSION
-  spec.authors       = ["Calvin Delamere", "Justin Van Eaton", "Brian Ledbetter"]
+  spec.authors       = ["Calvin Delamere", "Justin Van Eaton"]
   spec.email         = ["calvin.delamere@gmail.com"]
 
   spec.summary       = %q{Inspinia view helpers}
-  spec.description   = %q{Inspinia view helpers}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{This gem provides view helpers which build elements from the Inspinia bootstrap theme. These helpers will keep you code DRY and more readable.}
+  spec.homepage      = "https://github.com/elbartostrikesagain/inspinia_helpers"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

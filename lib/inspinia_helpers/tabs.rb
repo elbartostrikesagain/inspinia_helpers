@@ -1,12 +1,14 @@
 module InspiniaHelpers::Tabs
-  def tab_buttons(num_tabs, &block)
-    tabs = num_tabs.times.map.with_index {|idx| Proc.new {|klass, &block| tab_button(idx+1, klass, &block) } }
+  def tab_buttons(num_tabs, id=nil, &block)
+    id = '-' + id if id.present?
+    tabs = num_tabs.times.map.with_index {|idx| Proc.new {|klass, &block| tab_button("#{idx+1}#{id}", klass, &block) } }
     content = capture(*tabs, &block)
     content_tag(:ul, content, :class => "nav nav-tabs")
   end
 
-  def tab_content(num_tabs, &block)
-    tabs = num_tabs.times.map.with_index {|idx| Proc.new {|klass, &block| tab_pane(idx+1, klass, &block) } }
+  def tab_content(num_tabs, id=nil, &block)
+    id = '-' + id if id.present?
+    tabs = num_tabs.times.map.with_index {|idx| Proc.new {|klass, &block| tab_pane("#{idx+1}#{id}", klass, &block) } }
     content = capture(*tabs, &block)
     content_tag(:div, content, :class => "tab-content")
   end
