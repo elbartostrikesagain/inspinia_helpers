@@ -1,9 +1,11 @@
 module InspiniaHelpers::Panel
-  def standard_box(&block)
+  def standard_box(options = {}, &block)
     title = Proc.new {|&block| box_title_bar(&block) }
     content = Proc.new {|&block| box_content(&block) }
     content = capture(title, content, &block)
-    content_tag(:div, content, :class => "ibox float-e-margins")
+    klass = "ibox float-e-margins"
+    klass += " collapsed" if options[:collapsed] == true
+    content_tag(:div, content, :class => klass)
   end
 
   def panel(klass=nil, &block)
